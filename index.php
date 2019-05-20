@@ -1,5 +1,18 @@
-
 <!DOCTYPE html>
+<!-- Bruce Turner, Professor Ostrander, Spring 2019 -->
+<!-- IT 328 Full Stack Web Development -->
+<!-- STANDALONE app for inclusion in Dating III Assignment, maybe -->
+<!-- file: index.php -->
+<!-- Mission Statement: -->
+<!-- "Give Premium Members the ability to upload an image of themselves, -->
+<!-- and display the image on their Profile Summary. (See chapter 9 in the -->
+<!-- PHP text and the tutorial at http://www.w3schools.com/php/php_file_upload.asp -->
+<!-- for instructions on uploading files.) Your form should only accept image -->
+<!-- files using the following extensions: png, jpeg or jpg.-->
+<!-- CREDIT DUE: -->
+<!-- Jake Suhoversnik, The "Yota of 328" -->
+<!-- http://www.w3schools.com/php/php_file_upload.asp -->
+<!-- Text Book, "Chapter 9: Handling HTML Forms with PHP" page 295 -->
 <html>
 <body>
 
@@ -14,9 +27,15 @@
 
 
 <?php
+//Assumes the existence of a sub directory called "uploads"
+//also that your php.ini has been edited as per the w3 schools tutorial.
+//This is not for the faint hearted. Don't forget the Linux context of the filesystem
+//For the purpose of this example, a "$target_file" will be chosen using a Linux
+//absolute path file specification. Note I have supplied a default file spec
+//of "profileImage.jpg"
 $target_dir = "uploads/";
-//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$target_file = "../Dating0516/" . $target_dir . "profileImage.jpg";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//$target_file = "../Dating0516/" . $target_dir . "profileImage.jpg";
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
